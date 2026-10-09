@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://pravingadekar.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pravin Gadekar — Google Cloud architect. Dark engineering-sheet card with an amber accent.">
+<meta property="og:image:alt" content="Pravin Gadekar — Google Cloud architect. Name and tagline over a gold-and-steel skeleton watch movement on a dark grid.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pravin Gadekar">
 <meta name="twitter:description" content="Google Cloud architect. I build AI agents that do real work, and the data platforms they stand on.">
@@ -22,127 +22,220 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#0b0f11;--sheet:#11171a;--line:#2b3a40;--ink:#e4eaec;--body:#d3dbde;--soft:#c4ced2;--mute:#97a6ac;--amber:#ffb13b;
-  --sans:'IBM Plex Sans Condensed',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+:root{--bg:#0b0f11;--ink:#f1ede4;--body:#c9ccca;--soft:#b9bcbc;--mute:#8d9296;--amber:#f2a93b;--amber-hi:#ffd08a;
+  --rule:rgba(242,169,59,.35);--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:24px;background-color:var(--bg);color:var(--ink);font-family:var(--sans);
-  background-image:radial-gradient(ellipse 60% 50% at 50% 45%,rgba(255,177,59,.05),transparent 70%),
-    linear-gradient(rgba(120,160,170,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,170,.07) 1px,transparent 1px),
-    linear-gradient(rgba(120,160,170,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,170,.035) 1px,transparent 1px);
-  background-size:100% 100%,80px 80px,80px 80px,16px 16px,16px 16px;background-position:center;-webkit-font-smoothing:antialiased}
-a{color:var(--ink)}
-a:hover{color:var(--amber)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+html,body{margin:0;background:var(--bg);color:#e7e3da;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;font-family:var(--sans);overflow-x:hidden;
+  background-image:linear-gradient(rgba(231,227,218,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(231,227,218,.035) 1px,transparent 1px);
+  background-size:32px 32px;background-attachment:fixed}
+a{color:var(--amber);text-decoration:none}
+a:hover{color:var(--amber-hi)}
+a.quiet{color:var(--body)}
+a.quiet:hover{color:var(--amber)}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
 p,h1,h2{margin:0}
-.stage{width:100%;max-width:740px;perspective:1600px}
-.card{display:grid;gap:28px}
-.face{background:var(--sheet);border:1px solid var(--line);box-shadow:0 0 0 6px var(--bg),0 0 0 7px #1f2b30,0 30px 60px -20px rgba(0,0,0,.8);
-  padding:30px 36px;display:flex;flex-direction:column;gap:16px;min-height:400px;position:relative}
-.face::before,.face::after{content:"";position:absolute;width:12px;height:12px;border-color:var(--amber);border-style:solid;opacity:.9}
-.face::before{top:-8px;left:-8px;border-width:1px 0 0 1px}
-.face::after{bottom:-8px;right:-8px;border-width:0 1px 1px 0}
-.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-.hero{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
-.role{display:flex;align-items:center;gap:12px;font:500 12px var(--mono);letter-spacing:.1em;color:var(--amber)}
-.role::before{content:"";width:10px;height:10px;background:var(--amber)}
-h1{font-weight:600;font-size:clamp(42px,9vw,60px);line-height:.95;letter-spacing:-.01em}
-.line{max-width:500px;font-size:20px;line-height:1.35;color:var(--soft);text-wrap:pretty}
-.contact{display:flex;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:14px;font:400 13px var(--mono);list-style:none;margin:0;padding-left:0}
-.contact li{padding:0 18px;border-left:1px solid var(--line)}
-.contact li:first-child{padding-left:0;border-left:0}
-.contact a{text-decoration:none}
-.contact a:hover{text-decoration:underline;text-underline-offset:3px}
-.flip{display:none;margin-left:auto;appearance:none;border:1px solid var(--amber);background:var(--amber);color:var(--sheet);padding:6px 12px;font:500 12px var(--mono);letter-spacing:.08em;cursor:pointer}
-.flip.ghost{background:none;border-color:#4a5b62;color:var(--ink)}
-.flip:hover{filter:brightness(1.08)}
-.story{font-size:17.5px;line-height:1.45;color:var(--body);text-wrap:pretty}
-.story em{font-style:normal;color:var(--amber)}
-.beagle{margin-top:auto;display:flex;align-items:center;gap:16px;border:1px solid var(--line);padding:12px 14px}
-.beagle img{width:40px;height:40px;flex:none;object-fit:contain}
-.btxt{flex:1}.beagle p{font-size:15px;line-height:1.35;color:var(--soft)}
-.beagle h2{font:500 12px/1.6 var(--mono);letter-spacing:.1em;color:var(--ink)}
-.beagle a{flex:none;font:500 13px var(--mono);color:var(--amber)}
-.beagle a:hover{color:var(--ink)}
-.backfoot{display:flex}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* Flip mode: JS on and enough room */
-@media (min-width:700px){
-  .js .card{gap:0;position:relative;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.3,.1,.2,1)}
-  .js .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-  .js .back{transform:rotateY(180deg)}
-  .js .card.flipped{transform:rotateY(180deg)}
-  .js .flip{display:inline-block}
-  .stage{animation:settle 1.1s cubic-bezier(.2,.7,.2,1) both}
-  .face{transition:box-shadow .6s}
-}
-@keyframes settle{from{opacity:0;transform:rotateX(9deg) translateY(14px)}to{opacity:1;transform:none}}
-
-@media (max-width:699px){
-  body{padding:20px 14px;place-items:start center}
-  .face{padding:24px 22px;min-height:0}
-  .hero{padding:28px 0 8px}
-  .line{font-size:18px}
-  .contact{flex-direction:column;align-items:flex-start;gap:10px}
-  .contact li{padding:0;border:0}
-  .story{font-size:16.5px}
-  .beagle{flex-wrap:wrap}
-  .beagle a{width:100%;padding-left:56px}
-  .backfoot{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  .stage{animation:none}
-  .js .card{transition:none}
-}
+.movement{position:fixed;top:50%;right:-3vw;width:max(100vw,128vh);max-width:1700px;aspect-ratio:1100/800;transform:translateY(-50%);pointer-events:none;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.14) 0%,rgba(0,0,0,.3) 45%,#000 70%);mask-image:linear-gradient(90deg,rgba(0,0,0,.14) 0%,rgba(0,0,0,.3) 45%,#000 70%)}
+.movement svg{display:block;width:100%;height:100%;opacity:.62}
+.topfade{position:fixed;top:0;left:0;right:0;height:120px;background:linear-gradient(var(--bg) 45%,rgba(11,15,17,0));pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 clamp(20px,6vw,96px)}
+.bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+header.bar{position:relative;z-index:2;padding:28px 0}
+.hero{min-height:calc(100vh - 160px);display:flex;flex-direction:column;justify-content:center;gap:24px;max-width:680px;padding:40px 0}
+.role{font:12px var(--mono);letter-spacing:.16em;color:var(--amber)}
+h1{font-size:clamp(48px,9vw,104px);line-height:.95;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.line{max-width:28em;font-size:clamp(18px,2vw,21px);line-height:1.55;color:var(--soft);text-wrap:pretty}
+.links{display:flex;flex-wrap:wrap;gap:12px 28px;margin:12px 0 0;padding:0;list-style:none;font:14px var(--mono)}
+.sec{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px 48px;padding:72px 0;border-top:1px solid var(--rule);max-width:900px}
+.label{display:flex;flex-direction:column;gap:8px;font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.label h2{font:inherit;color:var(--amber)}
+.label span{color:var(--mute)}
+.span2{grid-column:span 2}
+.prose{font-size:clamp(18px,1.8vw,21px);line-height:1.65;color:var(--body);text-wrap:pretty}
+.prose em{font-style:normal;color:var(--amber)}
+.project{display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px;align-items:start}
+.project img{width:80px;height:80px;object-fit:contain}
+.project div{display:flex;flex-direction:column;gap:14px}
+.project p{line-height:1.55}
+.project a{font:14px var(--mono)}
+footer.bar{padding:28px 0 36px;border-top:1px solid rgba(231,227,218,.12)}
+/* auto-fit collapses to one column on narrow screens; drop the span so it doesn't force an extra track */
+@media (max-width:640px){.span2{grid-column:auto}}
+/* on phones the movement sits behind the text, not beside it, so fade it back */
+@media (max-width:760px){.movement svg{opacity:.28}}
 </style>
-<script>document.documentElement.className='js'</script>
 </head>
 <body>
-<main class="stage">
-  <div class="card" id="card">
-    <section class="face front" id="front" aria-label="Front of card">
-      <div class="meta"><span>Sheet 01 / Front</span><span>19.07° N · 72.87° E — Mumbai, India</span></div>
-      <div class="hero">
-        <p class="role">GOOGLE CLOUD ARCHITECT</p>
-        <h1>Pravin Gadekar</h1>
-        <p class="line"><span class="sr">Google Cloud architect. </span>I build AI agents that do real work, and the data platforms they stand on.</p>
-      </div>
-      <ul class="contact">
+<div class="movement" id="movement" aria-hidden="true"></div>
+<div class="topfade"></div>
+<div class="wrap">
+  <header class="bar">
+    <span>Pravin Gadekar</span>
+    <span>19.07° N · 72.87° E — Mumbai, India</span>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="role">GOOGLE CLOUD ARCHITECT</p>
+      <h1>Pravin Gadekar</h1>
+      <p class="line">Google Cloud architect. I build AI agents that do real work, and the data platforms they stand on.</p>
+      <ul class="links">
         <li><a href="mailto:hello@pravingadekar.com">→ hello@pravingadekar.com</a></li>
-        <li><a href="https://www.linkedin.com/in/pravin-gadekar" aria-label="LinkedIn: pravin-gadekar">in/pravin-gadekar</a></li>
-        <li><a href="https://github.com/gadekar-pravin" aria-label="GitHub: gadekar-pravin">gh/gadekar-pravin</a></li>
-        <li style="margin-left:auto;padding-right:0;border:0"><button class="flip" type="button" aria-controls="card">FLIP ⟳<span class="sr"> to read my story</span></button></li>
+        <li><a class="quiet" href="https://www.linkedin.com/in/pravin-gadekar" aria-label="LinkedIn: pravin-gadekar">in/pravin-gadekar</a></li>
+        <li><a class="quiet" href="https://github.com/gadekar-pravin" aria-label="GitHub: gadekar-pravin">gh/gadekar-pravin</a></li>
       </ul>
     </section>
-    <section class="face back" id="back" aria-label="Back of card: my story">
-      <div class="meta"><span>Sheet 02 / Story</span><span>18 yrs · 2008 → now</span></div>
-      <p class="story">Eighteen years of making enterprise systems run themselves. I started out writing banking and trading software, spent the 2010s moving data platforms to the cloud, and have spent the last seven architecting on Google Cloud, now at LTIMindtree and before that Capgemini. These days it’s <em>agentic AI</em>: agents that investigate, decide, and ask a person before they touch production.</p>
-      <div class="beagle">
-        <img src="beagle-head.webp" alt="" width="40" height="40" onerror="this.remove()">
-        <div class="btxt"><h2><span class="sr">Featured project: </span>BEAGLE / SIDE PROJECT</h2><p>My side project: AI agents that triage production incidents on Google Cloud, then wait for a human to approve the fix.</p></div>
-        <a href="https://beagle.pravingadekar.com">See how it works →</a>
-      </div>
-      <div class="backfoot"><button class="flip ghost" type="button" aria-controls="card">⟲ SHEET 01<span class="sr">, back to the front</span></button></div>
+    <section class="sec">
+      <div class="label"><h2>01 / Story</h2><span>18 yrs · 2008 → now</span></div>
+      <p class="prose span2">Eighteen years of making enterprise systems run themselves. I started out writing banking and trading software, spent the 2010s moving data platforms to the cloud, and have spent the last seven architecting on Google Cloud, now at LTIMindtree and before that Capgemini. These days it’s <em>agentic AI</em>: agents that investigate, decide, and ask a person before they touch production.</p>
     </section>
-  </div>
-</main>
+    <section class="sec">
+      <div class="label"><h2>02 / Featured project</h2><span>Beagle · side project</span></div>
+      <div class="project span2">
+        <img src="beagle-head.webp" alt="Beagle" width="80" height="80" onerror="this.remove()">
+        <div>
+          <p class="prose">AI agents that triage production incidents on Google Cloud, then wait for a human to approve the fix.</p>
+          <a href="https://beagle.pravingadekar.com">See how it works →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bar">
+    <span>© 2026 Pravin Gadekar</span>
+    <a href="mailto:hello@pravingadekar.com">hello@pravingadekar.com</a>
+  </footer>
+</div>
+<style>
+@keyframes mvSpin{to{transform:rotate(360deg)}}
+@keyframes mvSpinR{to{transform:rotate(-360deg)}}
+@keyframes mvOsc{0%{transform:rotate(-125deg)}100%{transform:rotate(125deg)}}
+</style>
 <script>
+// Decorative skeleton watch movement behind the page, drawn as one inline SVG.
+// Geometry ported from the Claude Design source ("Movement"); motion is off under prefers-reduced-motion.
 (function(){
-  var card=document.getElementById('card'),front=document.getElementById('front'),back=document.getElementById('back'),
-      btns=card.querySelectorAll('.flip'),mq=matchMedia('(min-width:700px)'),flipped=false;
-  function sync(focus){
-    var on=mq.matches;
-    card.classList.toggle('flipped',on&&flipped);
-    [front,back].forEach(function(f,i){var hide=on&&(i===0?flipped:!flipped);f.inert=hide;f.setAttribute('aria-hidden',hide)});
-    btns.forEach(function(b){b.setAttribute('aria-pressed',flipped)});
-    if(focus&&on)setTimeout(function(){(flipped?btns[1]:btns[0]).focus()},50);
+  var live=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var LINE='rgba(214,220,224,0.62)',AMB='#f2a93b',GOLD='url(#mvGold)',STEEL='url(#mvSteel)';
+  var KEEP={viewBox:1,attributeName:1,repeatCount:1,calcMode:1,keySplines:1,keyTimes:1};
+  function attr(k){return KEEP[k]?k:k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()})}
+  function h(tag,a){
+    var s='<'+tag;
+    for(var k in a)if(a[k]!=null)s+=' '+attr(k)+'="'+a[k]+'"';
+    var kids='';
+    for(var i=2;i<arguments.length;i++)kids+=flat(arguments[i]);
+    return s+'>'+kids+'</'+tag+'>';
   }
-  btns.forEach(function(b){b.addEventListener('click',function(){flipped=!flipped;sync(true)})});
-  (mq.addEventListener?mq.addEventListener('change',function(){sync()}):mq.addListener(function(){sync()}));
-  sync();
+  function flat(x){return x==null?'':Array.isArray(x)?x.map(flat).join(''):x}
+  function ext(){var o={};for(var i=0;i<arguments.length;i++)for(var k in arguments[i])o[k]=arguments[i][k];return o}
+  var sw={fill:'none',stroke:LINE,strokeWidth:1.2,vectorEffect:'non-scaling-stroke'};
+  var sg=ext(sw,{stroke:GOLD,strokeWidth:1.5});
+  function f(n){return n.toFixed(2)}
+  function teeth(n,r,d,shape){
+    var st=2*Math.PI/n,s='',prof=shape==='club'?[[r-d,0],[r,.55],[r-1.5,.72],[r-d,.78]]:[[r-d,0],[r,.18],[r,.42],[r-d,.6]];
+    for(var i=0;i<n;i++)prof.forEach(function(p,j){var a=(i+p[1])*st;s+=(i||j?'L':'M')+f(p[0]*Math.cos(a))+' '+f(p[0]*Math.sin(a))});
+    return s+'Z';
+  }
+  function spiral(r0,r1,turns,ph){
+    ph=ph||0;var s='',N=turns*60;
+    for(var i=0;i<=N;i++){var t=i/N,a=ph+t*turns*2*Math.PI,r=r0+(r1-r0)*t;s+=(i?'L':'M')+f(r*Math.cos(a))+' '+f(r*Math.sin(a))}
+    return s;
+  }
+  var BOX='transform-box:fill-box;transform-origin:center';
+  function anim(name,dur,timing){return live?'animation:'+name+' '+dur+'s '+(timing||'linear')+' infinite'+(name==='mvOsc'?' alternate':'')+';'+BOX:BOX}
+  function steps(name,dur){return live?'animation:'+name+' '+dur+'s steps(30) infinite;'+BOX:null}
+  function jewel(x,y){x=x||0;y=y||0;return h('g',{},h('circle',ext({cx:x,cy:y,r:4.5},sw)),h('circle',{cx:x,cy:y,r:2.4,fill:AMB}))}
+  function centerMark(x,y,r){return h('g',{stroke:LINE,strokeWidth:.6,vectorEffect:'non-scaling-stroke',strokeDasharray:'10 3 2 3',opacity:.6},
+    h('line',{x1:x-r,y1:y,x2:x+r,y2:y}),h('line',{x1:x,y1:y-r,x2:x,y2:y+r}))}
+  function wheel(o){
+    var tw=o.gold?sg:sw,r=o.r,d=Math.max(4,r*.06),ri=r-d-5,hub=o.pr+6,kids=[];
+    kids.push(h('path',ext({d:teeth(o.n,r,d)},tw)),h('circle',ext({r:ri},tw)),h('circle',ext({r:ri-3},sw,{opacity:.6})));
+    for(var k=0;k<o.spokes;k++){
+      var t=k*2*Math.PI/o.spokes,b=t+.55,m=(t+b)/2+.35,rm=(hub+ri)/2;
+      [0,.3].forEach(function(q){kids.push(h('path',ext({d:'M'+f(hub*Math.cos(t+q))+' '+f(hub*Math.sin(t+q))+' Q'+f(rm*Math.cos(m+q))+' '+f(rm*Math.sin(m+q))+' '+f((ri-3)*Math.cos(b+q))+' '+f((ri-3)*Math.sin(b+q))},sw)))});
+    }
+    kids.push(h('circle',ext({r:hub},tw)),h('path',ext({d:teeth(o.pn,o.pr,3)},sw)),o.extra);
+    return h('g',{transform:'translate('+o.x+' '+o.y+')'},h('g',{style:o.a},kids),jewel(),centerMark(0,0,r+14));
+  }
+  function bridge(pts,w){
+    var d='M'+pts.map(function(p){return p.join(' ')}).join(' L'),j={fill:'none',strokeLinecap:'round',strokeLinejoin:'round'};
+    return h('g',{},h('path',ext({d:d,stroke:'#c9a24e',strokeWidth:w+2.5,opacity:.85},j)),h('path',ext({d:d,stroke:STEEL,strokeWidth:w},j)),
+      h('path',{d:d,fill:'none',stroke:LINE,strokeWidth:1,vectorEffect:'non-scaling-stroke',strokeDasharray:'1 5',opacity:.5}));
+  }
+  function screw(x,y,rot){return h('g',{transform:'translate('+x+' '+y+') rotate('+(rot==null?30:rot)+')'},
+    h('circle',{r:7,fill:STEEL,stroke:GOLD,strokeWidth:1.4,vectorEffect:'non-scaling-stroke'}),h('line',ext({x1:-6,y1:0,x2:6,y2:0},sw)))}
+  function smil(vals,dur){return live?h('animateTransform',{attributeName:'transform',type:'rotate',values:vals,dur:dur+'s',repeatCount:'indefinite',calcMode:'spline',keySplines:'.45 0 .55 1;.45 0 .55 1',keyTimes:'0;.5;1'}):''}
+  function range(n,fn){var a=[];for(var i=0;i<n;i++)a.push(fn(i));return a}
+
+  var B={x:610,y:510},B2={x:335,y:575},C={x:724,y:407},W={x:632,y:343},I={x:552,y:300},T={x:836,y:397},E={x:850,y:317},BAL={x:928,y:186},TB={x:450,y:230},CW={x:685,y:563},RC={x:700,y:410},P={x:892,y:250};
+  var els=[];
+  // chapter ring
+  var ticks=range(120,function(k){var t=k*Math.PI/60,maj=k%10===0,r1=maj?372:382;
+    return h('line',ext({x1:f(RC.x+r1*Math.cos(t)),y1:f(RC.y+r1*Math.sin(t)),x2:f(RC.x+392*Math.cos(t)),y2:f(RC.y+392*Math.sin(t))},maj?sg:sw,{opacity:maj?.9:.45}))});
+  els.push(h('g',{},h('circle',ext({cx:RC.x,cy:RC.y,r:400},sw,{opacity:.5})),h('circle',ext({cx:RC.x,cy:RC.y,r:392},sg,{opacity:.6})),h('circle',ext({cx:RC.x,cy:RC.y,r:364},sw,{opacity:.25,strokeDasharray:'2 6'})),ticks,
+    h('g',{transform:'translate('+RC.x+' '+RC.y+')'},h('g',{style:anim('mvSpin',60)},h('circle',{r:412,fill:'none',stroke:'none'}),h('path',{d:'M0 -404 L-6 -416 L6 -416 Z',fill:AMB}),h('line',ext({x1:0,y1:0,x2:0,y2:-360},sw,{opacity:.18}))))));
+  // twin barrels + wheel train
+  els.push(wheel(ext(B2,{n:96,r:140,pn:12,pr:16,spokes:6,a:anim('mvSpinR',2400),extra:h('path',ext({d:spiral(26,104,9,1)},sw,{opacity:.5}))})));
+  els.push(wheel(ext(B,{n:96,r:140,pn:12,pr:16,spokes:6,gold:true,a:anim('mvSpin',2400),extra:h('path',ext({d:spiral(26,104,9)},sw,{opacity:.55}))})));
+  els.push(wheel(ext(C,{n:80,r:100,pn:10,pr:14,spokes:5,a:anim('mvSpinR',720)})));
+  els.push(wheel(ext(W,{n:60,r:62,pn:12,pr:12,spokes:4,a:anim('mvSpin',300)})));
+  els.push(wheel(ext(I,{n:30,r:26,pn:8,pr:7,spokes:3,gold:true,a:anim('mvSpinR',90)})));
+  els.push(wheel(ext(T,{n:75,r:72,pn:10,pr:12,spokes:5,gold:true,a:anim('mvSpin',150)})));
+  // escape wheel + pallet fork
+  els.push(h('g',{transform:'translate('+E.x+' '+E.y+')'},
+    h('g',{style:steps('mvSpinR',48)},h('path',ext({d:teeth(15,46,12,'club')},sg)),h('circle',ext({r:28},sg)),h('circle',ext({r:16},sw)),
+      range(4,function(k){var t=k*Math.PI/2;return h('line',ext({x1:f(16*Math.cos(t)),y1:f(16*Math.sin(t)),x2:f(28*Math.cos(t)),y2:f(28*Math.sin(t))},sw))}),
+      h('path',ext({d:teeth(8,10,3)},sw))),jewel(),centerMark(0,0,60)));
+  els.push(h('g',{transform:'translate('+P.x+' '+P.y+') rotate(-58)'},
+    h('g',{},smil('-7;7;-7',3.2),h('path',ext({d:'M-34 -8 L0 -3 L0 3 L-34 8 M0 0 L40 0 M-34 -8 L-38 -20 M-34 8 L-38 20 M40 -5 L52 -8 M40 5 L52 8'},sw)),
+      h('rect',{x:-42,y:-24,width:8,height:5,fill:AMB}),h('rect',{x:-42,y:19,width:8,height:5,fill:AMB})),jewel()));
+  // tourbillon
+  var cageArms=range(3,function(k){var t=k*2*Math.PI/3;return h('path',ext({d:'M'+f(14*Math.cos(t))+' '+f(14*Math.sin(t))+' L'+f(78*Math.cos(t-.12))+' '+f(78*Math.sin(t-.12))+' L'+f(78*Math.cos(t+.12))+' '+f(78*Math.sin(t+.12))+' Z'},sg))});
+  var tbBal=h('g',{transform:'translate(0 22)'},h('g',{style:anim('mvOsc',.8,'cubic-bezier(.45,0,.55,1)')},
+    h('circle',ext({r:34},sg)),h('circle',ext({r:30},sw)),h('line',ext({x1:-30,y1:0,x2:30,y2:0},sw)),h('line',ext({x1:0,y1:-30,x2:0,y2:30},sw)),h('path',ext({d:spiral(5,20,8)},sw,{opacity:.7}))),jewel());
+  var tbEsc=h('g',{transform:'translate(0 -46)'},h('g',{style:steps('mvSpin',12)},h('path',ext({d:teeth(15,18,5,'club')},sw)),h('circle',ext({r:8},sw))),jewel());
+  els.push(h('g',{transform:'translate('+TB.x+' '+TB.y+')'},
+    h('path',ext({d:teeth(90,96,5)},sg,{opacity:.8})),h('circle',ext({r:88},sw,{opacity:.5})),
+    h('g',{style:anim('mvSpin',60)},h('circle',ext({r:82},sg)),h('circle',ext({r:78},sw)),cageArms,tbBal,tbEsc,h('circle',ext({r:14},sw))),
+    centerMark(0,0,120)));
+  els.push(bridge([[TB.x,TB.y],[TB.x-110,TB.y-90]],18),screw(TB.x-110,TB.y-90,50),jewel(TB.x,TB.y));
+  // main bridge
+  els.push(bridge([[550,340],[724,407],[836,397],[850,317],[960,340]],22));
+  els.push(screw(550,340),screw(960,340,70),jewel(C.x,C.y),jewel(T.x,T.y),jewel(E.x,E.y));
+  // barrel bridge with ratchet, click, crown wheel, stem
+  els.push(bridge([[B2.x,B2.y],[B.x,B.y]],30),screw(B2.x+90,B2.y-20,15),screw(B.x-90,B.y+20,80));
+  els.push(h('g',{transform:'translate('+B.x+' '+B.y+')'},h('g',{style:anim('mvSpin',240)},
+    h('path',{d:teeth(40,62,6,'club'),fill:STEEL,stroke:GOLD,strokeWidth:1.5,vectorEffect:'non-scaling-stroke'}),h('circle',ext({r:46},sw)),
+    range(6,function(k){return h('circle',ext({cx:f(30*Math.cos(k*Math.PI/3)),cy:f(30*Math.sin(k*Math.PI/3)),r:4},sw))}),h('circle',ext({r:12},sg)))));
+  els.push(h('g',{transform:'translate('+(B.x-52)+' '+(B.y-70)+')'},h('g',{},smil('0;6;0',1.6),
+    h('path',{d:'M0 0 L26 8 L30 18 L22 14 Z',fill:STEEL,stroke:GOLD,strokeWidth:1.3,vectorEffect:'non-scaling-stroke'})),h('circle',ext({r:4},sg))));
+  els.push(bridge([[CW.x,CW.y],[1120,720]],9));
+  els.push(h('g',{transform:'translate('+CW.x+' '+CW.y+')'},h('g',{style:anim('mvSpinR',30)},
+    h('path',{d:teeth(24,30,4),fill:STEEL,stroke:GOLD,strokeWidth:1.4,vectorEffect:'non-scaling-stroke'}),h('circle',ext({r:18},sw)),
+    range(3,function(k){return h('line',ext({x1:0,y1:0,x2:f(18*Math.cos(k*2.094)),y2:f(18*Math.sin(k*2.094))},sw))})),jewel()));
+  // balance
+  var arms=range(3,function(k){var t=k*2*Math.PI/3-Math.PI/2;return h('line',ext({x1:f(10*Math.cos(t)),y1:f(10*Math.sin(t)),x2:f(82*Math.cos(t)),y2:f(82*Math.sin(t))},sw))});
+  var tScrews=range(12,function(k){var t=k*Math.PI/6;return h('circle',{cx:f(92*Math.cos(t)),cy:f(92*Math.sin(t)),r:3.2,fill:GOLD,stroke:'none'})});
+  els.push(h('g',{transform:'translate('+BAL.x+' '+BAL.y+')'},
+    h('g',{style:anim('mvOsc',1.6,'cubic-bezier(.45,0,.55,1)')},h('circle',ext({r:88},sg)),h('circle',ext({r:82},sg)),arms,tScrews,
+      h('path',ext({d:spiral(12,52,11)},sw,{opacity:.7})),h('circle',ext({r:10},sw)),h('circle',{cx:0,cy:88,r:1.6,fill:AMB})),
+    bridge([[0,0],[118,70]],26),h('path',ext({d:'M0 0 L-40 -96'},sg)),h('circle',{cx:-40,cy:-96,r:3,fill:AMB}),screw(118,70,10),jewel(),centerMark(0,0,112)));
+  // annotations
+  var T1={fill:'rgba(231,227,218,0.78)',fontFamily:'JetBrains Mono, monospace',fontSize:10,letterSpacing:1.2};
+  function lead(x1,y1,x2,y2,x3,label){return h('g',{},h('path',ext({d:'M'+x1+' '+y1+' L'+x2+' '+y2+' L'+x3+' '+y2},sw,{stroke:AMB,opacity:.8})),h('circle',{cx:x1,cy:y1,r:2,fill:AMB}),h('text',ext({x:x3,y:y2-7},T1),label))}
+  els.push(h('g',{},
+    lead(BAL.x-62,BAL.y-64,BAL.x-110,BAL.y-120,BAL.x-290,'BALANCE Ø 17.6 · 28,800 VPH'),
+    lead(CW.x+20,CW.y+22,CW.x+60,CW.y+90,CW.x+220,'KEYLESS WORKS'),
+    h('path',ext({d:'M'+(B.x+168)+' '+(B.y-140)+' L'+(B.x+168)+' '+(B.y+140)+' M'+(B.x+160)+' '+(B.y-140)+' L'+(B.x+176)+' '+(B.y-140)+' M'+(B.x+160)+' '+(B.y+140)+' L'+(B.x+176)+' '+(B.y+140)},sw)),
+    h('text',ext({x:B.x+182,y:B.y+4},T1),'BARREL Ø 28.0'),
+    h('text',ext({x:E.x+64,y:E.y+48},T1),'ESC. 15T · CLUB'),
+    h('line',ext({x1:E.x+40,y1:E.y+22,x2:E.x+62,y2:E.y+44},sw,{stroke:AMB,opacity:.8}))));
+
+  var defs=h('defs',{},
+    h('linearGradient',{id:'mvGold',x1:0,y1:0,x2:1,y2:1},h('stop',{offset:0,stopColor:'#8a6526'}),h('stop',{offset:.45,stopColor:'#f4cd7a'}),h('stop',{offset:.6,stopColor:'#d9a441'}),h('stop',{offset:1,stopColor:'#7d5a1f'})),
+    h('linearGradient',{id:'mvSteel',x1:0,y1:0,x2:1,y2:1},h('stop',{offset:0,stopColor:'#141a1e'}),h('stop',{offset:.5,stopColor:'#262e33'}),h('stop',{offset:1,stopColor:'#12171a'})));
+  document.getElementById('movement').innerHTML=h('svg',{xmlns:'http://www.w3.org/2000/svg',viewBox:'0 0 1100 800',focusable:'false'},defs,els);
 })();
 </script>
 </body>
