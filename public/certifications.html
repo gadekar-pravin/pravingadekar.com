@@ -50,6 +50,7 @@ header.bar{padding:28px 0}
 .hero{display:flex;align-items:center;justify-content:space-between;gap:40px 56px;padding:56px 0 72px}
 .hero>div{display:flex;flex-direction:column;gap:22px;max-width:560px;min-width:0}
 .role{font:12px var(--mono);letter-spacing:.16em;color:var(--amber)}
+#count{display:inline-block;min-width:1.16em;text-align:right}
 h1{white-space:nowrap;font-size:clamp(44px,6.4vw,88px);line-height:.95;font-weight:600;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
 .line{font-size:19px;line-height:1.6;color:var(--soft);text-wrap:pretty}
 button.plate{position:relative;align-self:flex-start;display:grid;padding:0;border:0;background:none;cursor:pointer;perspective:700px;font:inherit;color:inherit;text-align:left}
@@ -64,38 +65,36 @@ button.plate{position:relative;align-self:flex-start;display:grid;padding:0;bord
 .plate .front::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 40%,rgba(242,169,59,.18) 50%,transparent 60%);transform:translateX(-100%)}
 
 
+/* the hero's right column keeps a fixed width so changing caption text never resizes the barrel */
+.side{display:flex;flex-direction:column;align-items:center;width:min(100%,460px);flex:none}
 /* mainspring barrel: wound one click per certification; --k is how many are wound (0–12) */
 .barrel{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;margin:0}
 .barrel .mech{position:relative;width:100%}
 .barrel svg{display:block;width:100%;height:auto;overflow:visible}
-.barrel .spring{stroke-dasharray:2901;stroke-dashoffset:calc(2901px * (1 - var(--k) / 12));transition:stroke-dashoffset .28s ease-out}
-.barrel .ratchet{transform-box:fill-box;transform-origin:center;transform:rotate(calc(var(--k) * 30deg));transition:transform .22s cubic-bezier(.3,1.7,.5,1)}
-.barrel .cwheel{transform-box:fill-box;transform-origin:center;transform:rotate(calc(var(--k) * -54deg));transition:transform .22s cubic-bezier(.3,1.7,.5,1)}
-.barrel .t{fill:url(#litT);stroke:#ffe3b0;stroke-width:.7}
+.barrel .spring{stroke-dasharray:2901;stroke-dashoffset:calc(2901px * (1 - var(--k) / 12));transition:stroke-dashoffset .6s ease-in-out}
+.barrel .ratchet{transform-box:fill-box;transform-origin:center;transform:rotate(calc(var(--k) * 30deg));transition:transform .6s ease-in-out}
+.barrel .cwheel{transform-box:fill-box;transform-origin:center;transform:rotate(calc(var(--k) * -54deg));transition:transform .6s ease-in-out}
+.barrel .t{fill:#eda63c;stroke:#ffe3b0;stroke-width:.7;transition:fill .6s ease-in-out,stroke .6s ease-in-out}
 .armed .barrel .t{fill:#232b30;stroke:#3a4247}
-.armed .barrel .t.lit{fill:url(#litT);stroke:#ffe3b0}
+.armed .barrel .t.lit{fill:#eda63c;stroke:#ffe3b0}
 .barrel .pawl{transform-box:fill-box;transform-origin:86% 22%}
 .barrel .zap,.barrel .fin,.barrel .hint{opacity:0;transform-box:fill-box;transform-origin:center}
-.barrel .snap .pawl{animation:snap .2s ease-out}
-.barrel .snap .zap{animation:spark .45s ease-out}
-.barrel .snap .flutes{animation:turn .2s linear}
-.barrel.wound .fin{animation:fin 1.2s ease-out}
+.barrel .flutes{transform:translateY(calc(var(--k) * 7px));transition:transform .6s ease-in-out}
+.barrel.wound .fin{animation:fin 1.8s ease-out}
 .armed .barrel.done .hint{animation:hint 2s ease-in-out 1.2s infinite}
 .strip{display:flex;align-items:flex-start;gap:14px}
 .strip .yr{display:flex;flex-direction:column;align-items:center;gap:6px}
 .strip .cells{display:flex;gap:4px}
-.strip .cell{width:14px;height:8px;border-radius:2px;background:#232b30;box-shadow:inset 0 0 0 1px #3a4247;transition:background .2s,box-shadow .2s}
+.strip .cell{width:14px;height:8px;border-radius:2px;background:#232b30;box-shadow:inset 0 0 0 1px #3a4247;transition:background .5s,box-shadow .5s}
 .strip .cell.lit{background:var(--amber);box-shadow:0 0 8px rgba(242,169,59,.55)}
 .strip .yl{font:9px var(--mono);letter-spacing:.1em;color:var(--mute)}
-.barrel figcaption{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;min-height:4.6em}
-.windstate{color:var(--amber);font-size:12px}
-.windsub{color:var(--mute);text-transform:none;letter-spacing:.06em}
-.windhint{display:none;color:var(--mute);font-size:10px}
-.armed .barrel.done .windhint{display:block}
+.barrel figcaption{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;text-align:center;font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.windstate{color:var(--amber);font-size:12px;line-height:1.5;height:3em;display:flex;align-items:center;justify-content:center}
+.windsub{color:var(--mute);text-transform:none;letter-spacing:.06em;line-height:1.5;height:3em;display:flex;align-items:flex-start;justify-content:center}
+.windhint{visibility:hidden;opacity:0;color:var(--mute);font-size:10px;line-height:1.5;transition:opacity .6s}
+.armed .barrel.done .windhint{visibility:visible;opacity:1}
 .crownbtn{position:absolute;left:80%;top:32%;width:17%;height:34%;min-width:44px;min-height:44px;border:0;background:none;cursor:pointer;border-radius:14px}
 .crownbtn:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-@keyframes snap{40%{transform:rotate(-12deg)}}
-@keyframes turn{to{transform:translateY(7px)}}
 @keyframes fin{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.16)}}
 @keyframes hint{0%,100%{opacity:0;transform:scale(1)}50%{opacity:.8;transform:scale(1.12)}}
 /* the chart: one row per certification, bar from earned to expires */
@@ -257,7 +256,7 @@ footer.bar{padding:28px 0 36px;border-top:1px solid rgba(231,227,218,.12)}
             <rect x="279" y="145" width="95" height="10" rx="3" fill="url(#stemG)" stroke="#3a4247" stroke-width=".6"/>
             <rect x="330" y="143" width="4" height="14" rx="1" fill="#3a4247"/>
             <rect x="372" y="118" width="40" height="64" rx="9" fill="url(#crownG)" stroke="#ffd08a" stroke-width=".8"/>
-            <g clip-path="url(#crownclip)"><g class="flutes" stroke="#4a3812" stroke-width="2.2" opacity=".55"><line x1="372" y1="111" x2="412" y2="111"/><line x1="372" y1="118" x2="412" y2="118"/><line x1="372" y1="125" x2="412" y2="125"/><line x1="372" y1="132" x2="412" y2="132"/><line x1="372" y1="139" x2="412" y2="139"/><line x1="372" y1="146" x2="412" y2="146"/><line x1="372" y1="153" x2="412" y2="153"/><line x1="372" y1="160" x2="412" y2="160"/><line x1="372" y1="167" x2="412" y2="167"/><line x1="372" y1="174" x2="412" y2="174"/><line x1="372" y1="181" x2="412" y2="181"/></g></g>
+            <g clip-path="url(#crownclip)"><g class="flutes" stroke="#4a3812" stroke-width="2.2" opacity=".55"><line x1="372" y1="27" x2="412" y2="27"/><line x1="372" y1="34" x2="412" y2="34"/><line x1="372" y1="41" x2="412" y2="41"/><line x1="372" y1="48" x2="412" y2="48"/><line x1="372" y1="55" x2="412" y2="55"/><line x1="372" y1="62" x2="412" y2="62"/><line x1="372" y1="69" x2="412" y2="69"/><line x1="372" y1="76" x2="412" y2="76"/><line x1="372" y1="83" x2="412" y2="83"/><line x1="372" y1="90" x2="412" y2="90"/><line x1="372" y1="97" x2="412" y2="97"/><line x1="372" y1="104" x2="412" y2="104"/><line x1="372" y1="111" x2="412" y2="111"/><line x1="372" y1="118" x2="412" y2="118"/><line x1="372" y1="125" x2="412" y2="125"/><line x1="372" y1="132" x2="412" y2="132"/><line x1="372" y1="139" x2="412" y2="139"/><line x1="372" y1="146" x2="412" y2="146"/><line x1="372" y1="153" x2="412" y2="153"/><line x1="372" y1="160" x2="412" y2="160"/><line x1="372" y1="167" x2="412" y2="167"/><line x1="372" y1="174" x2="412" y2="174"/><line x1="372" y1="181" x2="412" y2="181"/></g></g>
             <rect x="412" y="128" width="7" height="44" rx="3" fill="url(#crownG)" stroke="#ffd08a" stroke-width=".6"/>
             <rect class="hint" x="366" y="112" width="58" height="76" rx="14" fill="none" stroke="#ffd08a" stroke-width="1.2"/>
             <g class="pawl">
@@ -266,7 +265,6 @@ footer.bar{padding:28px 0 36px;border-top:1px solid rgba(231,227,218,.12)}
               <circle cx="250" cy="86" r="7" fill="url(#blued)" stroke="#e2bb6a" stroke-width="1"/>
               <line x1="245" y1="86" x2="255" y2="86" stroke="#0b0f11" stroke-width="1.6"/>
             </g>
-            <g class="zap" stroke="#ffd08a" stroke-width="1.4" stroke-linecap="round"><line x1="221" y1="104" x2="228" y2="102"/><line x1="207" y1="106" x2="200" y2="108"/><line x1="213" y1="97" x2="211" y2="90"/><line x1="215" y1="112" x2="217" y2="119"/><line x1="219" y1="99" x2="224" y2="94"/><line x1="209" y1="110" x2="204" y2="115"/></g>
             <circle class="fin" cx="180" cy="150" r="128" fill="none" stroke="#ffd08a" stroke-width="2.4"/>
           </svg>
           <button class="crownbtn" type="button" aria-label="Wind the crown and replay the twelve certifications"></button>
@@ -405,7 +403,7 @@ footer.bar{padding:28px 0 36px;border-top:1px solid rgba(231,227,218,.12)}
     ['Oct 2022','Databricks Data Engineer Associate'],['Dec 2022','Databricks Data Analyst Associate'],['Nov 2024','Associate Data Practitioner'],
     ['Dec 2025','Generative AI Leader'],['Aug 2026','Databricks Generative AI Engineer Associate'],['Aug 2026','Databricks Data Engineer Professional'],
     ['Sep 2026','Azure Databricks Data Engineer Associate'],['Oct 2026','Claude Certified Associate – Foundations'],['Oct 2026','Professional Agentic Architect']];
-  var gaps=[300,220,220,420,220,420,420,420,120,120,120,120];
+  var gaps=[500,420,420,700,420,700,700,700,280,280,280,280];
   var barrel=document.getElementById('barrel'),svg=barrel.querySelector('svg'),teeth=barrel.querySelectorAll('.t'),
       state=document.getElementById('windstate'),sub=document.getElementById('windsub'),el=document.getElementById('count'),running=false;
   var cells=barrel.querySelectorAll('.cell');
@@ -416,12 +414,12 @@ footer.bar{padding:28px 0 36px;border-top:1px solid rgba(231,227,218,.12)}
     state.textContent='Winding…';sub.textContent='0 of 12';
     var k=0,t=0;
     gaps.forEach(function(g,n){t+=g;setTimeout(function(){
-      k=n+1;set(k);svg.classList.remove('snap');void svg.getBoundingClientRect();svg.classList.add('snap');
+      k=n+1;set(k);
       state.textContent=seq[n][0]+' · '+seq[n][1];sub.textContent=k+' of 12';
       if(countHeadline)el.textContent=k;
     },t)});
     setTimeout(function(){barrel.classList.add('wound','done');state.textContent='Fully wound · 12 certifications';
-      sub.textContent='All twelve earned between August and December';running=false},t+450);
+      sub.textContent='All twelve earned between August and December';running=false},t+700);
   }
   barrel.querySelector('.crownbtn').addEventListener('click',function(){wind(true)});
   set(0);state.textContent='Wind the crown';sub.textContent='0 of 12';
