@@ -57,7 +57,10 @@ h1{font-size:clamp(48px,9vw,104px);line-height:.95;font-weight:600;letter-spacin
 .prose{font-size:clamp(18px,1.8vw,21px);line-height:1.65;color:var(--body);text-wrap:pretty}
 .prose em{font-style:normal;color:var(--amber)}
 .project{display:grid;grid-template-columns:80px minmax(0,1fr);gap:24px;align-items:start}
-.project img{width:80px;height:80px;object-fit:contain}
+.projects{display:flex;flex-direction:column;gap:48px}
+.project img,.project svg{width:80px;height:80px;object-fit:contain}
+.project .tag{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.plinks{display:flex;flex-wrap:wrap;gap:8px 28px}
 .project div{display:flex;flex-direction:column;gap:14px}
 .project p{line-height:1.55}
 .project a{font:14px var(--mono)}
@@ -92,12 +95,23 @@ footer.bar{padding:28px 0 36px;border-top:1px solid rgba(231,227,218,.12)}
       <p class="prose span2">Eighteen years of making enterprise systems run themselves. I started out writing banking and trading software, spent the 2010s moving data platforms to the cloud, and have spent the last seven architecting on Google Cloud, now at LTIMindtree and before that Capgemini. These days it’s <em>agentic AI</em>: agents that investigate, decide, and ask a person before they touch production.</p>
     </section>
     <section class="sec">
-      <div class="label"><h2>02 / Featured project</h2><span>Beagle · reference architecture</span></div>
-      <div class="project span2">
-        <img src="beagle-head.webp" alt="Beagle" width="80" height="80" onerror="this.remove()">
-        <div>
-          <p class="prose">AI agents that triage production incidents on Google Cloud, then wait for a human to approve the fix.</p>
-          <a href="https://beagle.pravingadekar.com">See how it works →</a>
+      <div class="label"><h2>02 / Featured projects</h2><span>2 projects</span></div>
+      <div class="projects span2">
+        <div class="project">
+          <img src="beagle-head.webp" alt="Beagle" width="80" height="80" onerror="this.remove()">
+          <div>
+            <p class="tag">Beagle · reference architecture</p>
+            <p class="prose">AI agents that triage production incidents on Google Cloud, then wait for a human to approve the fix.</p>
+            <a href="https://beagle.pravingadekar.com">See how it works →</a>
+          </div>
+        </div>
+        <div class="project">
+          <svg viewBox="0 0 32 32" width="80" height="80" role="img" aria-label="Trellis"><path d="M8 8h16M8 16h16M8 24h16M8 8v16M16 8v16M24 8v16" stroke="#f2a93b" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+          <div>
+            <p class="tag">Trellis · recorded demo</p>
+            <p class="prose">An AI analyst that answers business questions from BigQuery, shows the query behind every figure, and says so when it can’t answer.</p>
+            <p class="plinks"><a href="https://trellis.pravingadekar.com">See how it works →</a><a class="quiet" href="https://replay.trellis.pravingadekar.com">Watch the replay →</a></p>
+          </div>
         </div>
       </div>
     </section>
