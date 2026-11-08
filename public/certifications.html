@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certifications · Pravin Gadekar</title>
+<meta name="description" content="Twelve current certifications across Google Cloud, Databricks, Microsoft and Anthropic, each with a link to verify it.">
+<link rel="canonical" href="https://pravingadekar.com/certifications">
+<meta name="theme-color" content="#0b0f11">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pravingadekar.com/certifications">
+<meta property="og:title" content="Certifications · Pravin Gadekar">
+<meta property="og:description" content="Twelve current certifications across Google Cloud, Databricks, Microsoft and Anthropic, each with a link to verify it.">
+<meta property="og:image" content="https://pravingadekar.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#0b0f11;--ink:#f1ede4;--body:#c9ccca;--soft:#b9bcbc;--mute:#8d9296;--amber:#f2a93b;--amber-hi:#ffd08a;--gold:#c9a24e;--used:#8a7046;--steel:#3a4247;
+  --rule:rgba(242,169,59,.35);--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  /* today on the 2019-01-01 → 2029-01-01 axis; the script below keeps it current */
+  --n:.7851}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:#e7e3da;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;font-family:var(--sans);overflow-x:hidden;position:relative;
+  background-image:linear-gradient(rgba(231,227,218,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(231,227,218,.035) 1px,transparent 1px);
+  background-size:32px 32px;background-attachment:fixed}
+a{color:var(--amber);text-decoration:none}
+a:hover{color:var(--amber-hi)}
+a.quiet{color:var(--body)}
+a.quiet:hover{color:var(--amber)}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+p,h1,h2,h3,figure{margin:0}
+
+/* decorative wheels behind the hero */
+.gears{position:absolute;top:0;left:0;right:0;height:900px;overflow:hidden;pointer-events:none;z-index:0}
+.gear{position:absolute;pointer-events:none;opacity:.22}
+.gear.big{top:-170px;right:-190px;width:640px;height:640px}
+.gear.small{top:330px;right:250px;width:230px;height:230px;opacity:.2}
+.gear g{transform-origin:center;transform-box:fill-box}
+.gear.big g{animation:spin 90s linear infinite}
+.gear.small g{animation:spin 36s linear infinite reverse}
+@media (max-width:760px){.gear.big{opacity:.12}.gear.small{display:none}}
+
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 clamp(20px,6vw,96px)}
+.bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+header.bar{padding:28px 0}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:40px 56px;padding:56px 0 72px}
+.hero>div{display:flex;flex-direction:column;gap:22px;max-width:560px}
+.role{font:12px var(--mono);letter-spacing:.16em;color:var(--amber)}
+h1{font-size:clamp(48px,8vw,96px);line-height:.95;font-weight:600;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
+.line{font-size:19px;line-height:1.6;color:var(--soft);text-wrap:pretty}
+.plate{position:relative;overflow:hidden;align-self:flex-start;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:12px 16px;
+  border:1px solid rgba(201,162,78,.45);border-radius:2px;background:rgba(58,66,71,.25);font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--body)}
+.plate b{font-weight:400;color:var(--amber)}
+.plate::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 40%,rgba(242,169,59,.18) 50%,transparent 60%);transform:translateX(-100%)}
+
+/* power-reserve gauge: needle points at months left until the next certification expires */
+.gauge{display:flex;flex-direction:column;align-items:center;gap:14px;width:min(100%,320px);flex:none}
+.gauge svg{width:100%;height:auto;overflow:visible}
+.gauge .needle{transform-origin:160px 160px;transform:rotate(var(--a,0deg));transition:transform 1.8s cubic-bezier(.2,1.25,.4,1)}
+.gauge .breathe{transform-origin:160px 160px}
+.gauge figcaption{text-align:center;font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.8}
+.gauge figcaption b{font-weight:400;color:var(--amber)}
+
+/* the chart: one row per certification, bar from earned to expires */
+.chart{border-top:1px solid var(--rule);padding:32px 0 80px}
+.row,.axis{display:grid;grid-template-columns:64px minmax(0,280px) minmax(0,1fr);gap:10px 24px;align-items:center}
+.axis>span{grid-column:1/3}
+.row .track{margin-left:16px}
+.axis{position:sticky;top:0;z-index:2;padding:12px 0 6px;background:linear-gradient(var(--bg) 70%,rgba(11,15,17,0))}
+.scale{position:relative;height:32px;font:10px var(--mono);letter-spacing:.08em;color:var(--mute)}
+.scale span{position:absolute;top:0;transform:translateX(-50%)}
+.scale .lo{transform:none}
+.scale .hi{transform:translateX(-100%)}
+.scale .now{color:var(--amber-hi);left:calc(var(--n) * 100%);top:16px}
+.grp{margin-top:40px}
+.grp h2{display:flex;align-items:center;gap:14px;margin-bottom:6px;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.grp h2 .c{color:var(--mute)}
+.jewels{display:flex;gap:5px}
+.jewels i{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 1.5px var(--steel),0 0 0 2.5px var(--gold)}
+.row{padding:18px 0;border-bottom:1px solid rgba(231,227,218,.07)}
+.row h3{font-size:16px;font-weight:500;line-height:1.35;color:var(--ink)}
+.meta{display:flex;flex-wrap:wrap;gap:2px 16px;margin-top:6px;font:12px var(--mono);color:var(--mute)}
+.meta a{font:12px var(--mono)}
+.badge{display:flex;justify-content:center;align-self:center;position:relative;overflow:hidden;border-radius:6px;transition:transform .3s;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
+.badge img{display:block;height:56px;width:auto}
+.badge:hover,.badge:focus-visible{transform:translateY(-3px) rotate(-3deg) scale(1.06)}
+.badge::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,236,200,.55) 50%,transparent 65%);transform:translateX(-120%)}
+.track{position:relative;height:24px;
+  background:repeating-linear-gradient(90deg,rgba(231,227,218,.08) 0 1px,transparent 1px 10%),linear-gradient(rgba(231,227,218,.1),rgba(231,227,218,.1)) 0 50%/100% 1px no-repeat}
+/* --m is today, held inside the bar: gold up to it (time served), amber after it (reserve left) */
+.track{--m:max(var(--s),min(var(--n),var(--e)))}
+.used,.left{position:absolute;top:9px;height:6px;transform-origin:left}
+.used{left:calc(var(--s) * 100%);width:calc((var(--m) - var(--s)) * 100%);background:var(--used);border-radius:3px 0 0 3px}
+.left{left:calc(var(--m) * 100%);width:calc((var(--e) - var(--m)) * 100%);background:var(--amber);border-radius:0 3px 3px 0}
+.cap{position:absolute;top:5px;width:2px;height:14px;border-radius:1px;background:var(--amber-hi);left:calc(var(--e) * 100%)}
+.jewel{position:absolute;top:6px;left:calc(var(--s) * 100%);width:12px;height:12px;margin-left:-6px;border-radius:50%;
+  background:radial-gradient(circle,var(--amber-hi) 0 2px,var(--amber) 2.5px 3.5px,var(--steel) 4px);box-shadow:0 0 0 1px var(--gold)}
+.track::after{content:"";position:absolute;top:-6px;bottom:-6px;left:calc(var(--n) * 100%);width:1px;background:var(--amber-hi);opacity:.8}
+footer.bar{padding:28px 0 36px;border-top:1px solid rgba(231,227,218,.12)}
+
+/* ---- motion: runs only once the script arms it; with no JS or reduced motion the page is fully drawn ---- */
+.armed .gauge .breathe{animation:breathe 1s ease-in-out 1.8s infinite alternate}
+.armed .plate::after{animation:sheen 6s ease-in-out 1s infinite}
+.armed .badge::after{animation:glint 5s ease-in-out 2.5s infinite}
+.armed .row{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.armed .row .badge{opacity:0;transform:perspective(400px) rotateY(85deg);transition:opacity .5s .3s,transform .8s .3s cubic-bezier(.2,1.2,.4,1)}
+.armed .row .used,.armed .row .left{transform:scaleX(0)}
+.armed .row .used{transition:transform .9s .15s cubic-bezier(.3,.7,.3,1)}
+.armed .row .left{transition:transform .6s 1s cubic-bezier(.3,.7,.3,1)}
+.armed .row .jewel{transform:scale(0);opacity:0;transition:transform .45s .1s cubic-bezier(.2,1.6,.4,1),opacity .2s .1s}
+.armed .row .cap{opacity:0;transition:opacity .3s 1.5s}
+.armed .grp .jewels i{transform:scale(0);transition:transform .45s cubic-bezier(.2,1.6,.4,1)}
+.armed .row.on{opacity:1;transform:none}
+.armed .row.on .badge{opacity:1;transform:none}
+.armed .row.on .badge:hover,.armed .row.on .badge:focus-visible{transform:translateY(-3px) rotate(-3deg) scale(1.06);transition-delay:0s}
+.armed .row.on .used,.armed .row.on .left,.armed .row.on .jewel{transform:none;opacity:1}
+.armed .row.on .cap{opacity:1}
+.armed .row.on .track::after{animation:tick 1s steps(1) infinite}
+.armed .grp.on .jewels i{transform:none}
+.grp .jewels i:nth-child(2){transition-delay:.14s}.grp .jewels i:nth-child(3){transition-delay:.28s}
+.grp .jewels i:nth-child(4){transition-delay:.42s}.grp .jewels i:nth-child(5){transition-delay:.56s}.grp .jewels i:nth-child(6){transition-delay:.7s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{from{transform:rotate(-1.2deg)}to{transform:rotate(1.2deg)}}
+@keyframes tick{50%{opacity:.35}}
+@keyframes glint{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes sheen{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+@media (max-width:760px){
+  .row,.axis{grid-template-columns:48px minmax(0,1fr);gap:10px 16px}
+  .axis>span{display:none}
+  .axis .scale{grid-column:1/-1}
+  .row .track{grid-column:1/-1;margin-left:0}
+  .badge img{height:44px}
+  .scale .odd{display:none}
+  .hero{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){.gear g{animation:none}}
+</style>
+</head>
+<body>
+<div class="gears" aria-hidden="true">
+<svg class="gear big" viewBox="0 0 600 600" aria-hidden="true"><g>
+  <circle cx="300" cy="300" r="250" fill="none" stroke="#c9a24e" stroke-width="2"/>
+  <circle cx="300" cy="300" r="236" fill="none" stroke="#8d9296" stroke-width="1"/>
+  <circle cx="300" cy="300" r="60" fill="none" stroke="#c9a24e" stroke-width="2"/>
+  <path d="M300 240 Q360 170 300 64 M360 300 Q430 360 536 300 M300 360 Q240 430 300 536 M240 300 Q170 240 64 300 M342 258 Q420 200 467 133 M342 342 Q400 420 467 467 M258 342 Q200 400 133 467 M258 258 Q180 200 133 133" fill="none" stroke="#8d9296" stroke-width="1.5"/>
+  <circle cx="300" cy="300" r="10" fill="#f2a93b"/>
+</g></svg>
+<svg class="gear small" viewBox="0 0 300 300" aria-hidden="true"><g>
+  <circle cx="150" cy="150" r="120" fill="none" stroke="#c9a24e" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="150" cy="150" r="104" fill="none" stroke="#8d9296" stroke-width="1"/>
+  <path d="M150 120 L150 50 M180 150 L250 150 M150 180 L150 250 M120 150 L50 150" stroke="#8d9296" stroke-width="1.5"/>
+  <circle cx="150" cy="150" r="30" fill="none" stroke="#c9a24e" stroke-width="2"/>
+  <circle cx="150" cy="150" r="6" fill="#f2a93b"/>
+</g></svg>
+</div>
+<div class="wrap">
+  <header class="bar">
+    <a class="quiet" href="/">← Pravin Gadekar</a>
+    <span>19.07° N · 72.87° E — Mumbai</span>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="role">CERTIFICATIONS</p>
+        <h1><span id="count">12</span> current.</h1>
+        <p class="line">Google Cloud, Databricks, Microsoft and Anthropic. Each bar runs from the day I earned the certification to the day it expires: gold is time served, amber is the reserve left.</p>
+        <p class="plate"><b>Cal. PG-12</b><span>12 jewels</span><span>4 issuers</span><span>Reserve through Dec 2028</span></p>
+      </div>
+      <figure class="gauge">
+        <svg viewBox="0 0 320 200" role="img" aria-labelledby="next">
+          <path d="M22 160 A138 138 0 0 1 298 160" fill="none" stroke="#3a4247" stroke-width="3"/>
+          <path d="M28 160 A132 132 0 0 1 292 160" fill="none" stroke="#c9a24e" stroke-width="1" opacity=".6"/>
+          <g id="ticks"></g>
+          <text x="62" y="164" fill="#8d9296" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">0</text>
+          <text x="160" y="70" fill="#8d9296" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">12</text>
+          <text x="258" y="164" fill="#8d9296" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">24</text>
+          <text x="160" y="124" fill="#c9a24e" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" text-anchor="middle">RESERVE · MONTHS</text>
+          <g class="needle" id="needle"><g class="breathe">
+            <line x1="160" y1="160" x2="160" y2="44" stroke="#ffd08a" stroke-width="2" stroke-linecap="round"/>
+            <line x1="160" y1="160" x2="160" y2="180" stroke="#ffd08a" stroke-width="4" stroke-linecap="round"/>
+          </g></g>
+          <circle cx="160" cy="160" r="10" fill="#3a4247" stroke="#c9a24e" stroke-width="1.5"/>
+          <circle cx="160" cy="160" r="4" fill="#f2a93b"/>
+        </svg>
+        <figcaption id="next">Next renewal <b>Sep 2027</b><br>Azure Databricks Data Engineer Associate</figcaption>
+      </figure>
+    </section>
+
+    <section class="chart" aria-label="Certifications with earned and expiry dates">
+      <div class="axis" aria-hidden="true">
+        <span></span>
+        <div class="scale"><span class="lo" style="left:0">2019</span><span class="odd" style="left:20%">2021</span><span style="left:40%">2023</span><span class="odd" style="left:60%">2025</span><span style="left:80%">2027</span><span class="hi" style="left:100%">2029</span><span class="now">now ▾</span></div>
+      </div>
+
+      <div class="grp">
+        <h2>Google Cloud <span class="jewels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="c">· 6</span></h2>
+        <div class="row" data-exp="2027-10-25">
+          <a class="badge" href="https://www.credly.com/badges/54a6915d-84f6-4f39-90ca-cfec1296be4c" target="_blank" rel="noopener" aria-label="Professional Data Engineer badge, verify on Credly"><img src="/badges/pde.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Professional Data Engineer</h3><p class="meta"><span>Oct 2019 → Oct 2027</span><a href="https://www.credly.com/badges/54a6915d-84f6-4f39-90ca-cfec1296be4c" target="_blank" rel="noopener">Verify on Credly →</a></p></div>
+          <div class="track" style="--s:.0813;--e:.8812" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2027-12-19">
+          <a class="badge" href="https://www.credly.com/badges/7a51b3fd-2551-4620-8c69-cc2777316413" target="_blank" rel="noopener" aria-label="Professional Cloud Architect badge, verify on Credly"><img src="/badges/pca.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Professional Cloud Architect</h3><p class="meta"><span>Dec 2019 → Dec 2027</span><a href="https://www.credly.com/badges/7a51b3fd-2551-4620-8c69-cc2777316413" target="_blank" rel="noopener">Verify on Credly →</a></p></div>
+          <div class="track" style="--s:.0964;--e:.8962" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2027-12-23">
+          <a class="badge" href="https://www.credly.com/badges/ab34b655-e3b3-4558-93ba-61940a8838c6" target="_blank" rel="noopener" aria-label="Associate Cloud Engineer badge, verify on Credly"><img src="/badges/ace.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Associate Cloud Engineer</h3><p class="meta"><span>Dec 2019 → Dec 2027</span><a href="https://www.credly.com/badges/ab34b655-e3b3-4558-93ba-61940a8838c6" target="_blank" rel="noopener">Verify on Credly →</a></p></div>
+          <div class="track" style="--s:.0975;--e:.8973" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2027-11-28">
+          <a class="badge" href="https://www.credly.com/badges/72756ff9-74a9-481d-a947-7b7b4b16361a" target="_blank" rel="noopener" aria-label="Associate Data Practitioner badge, verify on Credly"><img src="/badges/adp.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Associate Data Practitioner</h3><p class="meta"><span>Nov 2024 → Nov 2027</span><a href="https://www.credly.com/badges/72756ff9-74a9-481d-a947-7b7b4b16361a" target="_blank" rel="noopener">Verify on Credly →</a></p></div>
+          <div class="track" style="--s:.5907;--e:.8905" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2028-12-01">
+          <a class="badge" href="https://www.credly.com/badges/aee3e931-c1af-4b95-b67b-00e59c318bb5" target="_blank" rel="noopener" aria-label="Generative AI Leader badge, verify on Credly"><img src="/badges/gail.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Generative AI Leader</h3><p class="meta"><span>Dec 2025 → Dec 2028</span><a href="https://www.credly.com/badges/aee3e931-c1af-4b95-b67b-00e59c318bb5" target="_blank" rel="noopener">Verify on Credly →</a></p></div>
+          <div class="track" style="--s:.6915;--e:.9915" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2027-10-30">
+          <a class="badge" href="https://www.credly.com/badges/46d8c1af-23d7-48ab-9a3f-7e0f08d6c488" target="_blank" rel="noopener" aria-label="Professional Agentic Architect badge, verify on Credly"><img src="/badges/paa.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Professional Agentic Architect</h3><p class="meta"><span>Oct 2026 → Oct 2027</span><a href="https://www.credly.com/badges/46d8c1af-23d7-48ab-9a3f-7e0f08d6c488" target="_blank" rel="noopener">Verify on Credly →</a></p></div>
+          <div class="track" style="--s:.7826;--e:.8826" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+      </div>
+
+      <div class="grp">
+        <h2>Databricks <span class="jewels" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="c">· 4</span></h2>
+        <div class="row" data-exp="2027-12-14">
+          <a class="badge" href="https://www.credential.net/2444b2c2-4266-46b3-8f59-1733592f9a62" target="_blank" rel="noopener" aria-label="Data Engineer Associate badge, verify on Accredible"><img src="/badges/dbx-de.webp" alt="" width="48" height="64" loading="lazy"></a>
+          <div><h3>Data Engineer Associate</h3><p class="meta"><span>Oct 2022 → Dec 2027</span><a href="https://www.credential.net/2444b2c2-4266-46b3-8f59-1733592f9a62" target="_blank" rel="noopener">Verify on Accredible →</a></p></div>
+          <div class="track" style="--s:.3816;--e:.8949" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2028-07-14">
+          <a class="badge" href="https://www.credential.net/761df4c8-f060-47ff-ad08-80f3e2e2937b" target="_blank" rel="noopener" aria-label="Data Analyst Associate badge, verify on Accredible"><img src="/badges/dbx-da.webp" alt="" width="48" height="64" loading="lazy"></a>
+          <div><h3>Data Analyst Associate</h3><p class="meta"><span>Dec 2022 → Jul 2028</span><a href="https://www.credential.net/761df4c8-f060-47ff-ad08-80f3e2e2937b" target="_blank" rel="noopener">Verify on Accredible →</a></p></div>
+          <div class="track" style="--s:.3991;--e:.9532" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2028-08-06">
+          <a class="badge" href="https://www.credential.net/fa08e73b-598f-4829-a2e5-c17cd6e7c008" target="_blank" rel="noopener" aria-label="Generative AI Engineer Associate badge, verify on Accredible"><img src="/badges/dbx-genai.webp" alt="" width="48" height="64" loading="lazy"></a>
+          <div><h3>Generative AI Engineer Associate</h3><p class="meta"><span>Aug 2026 → Aug 2028</span><a href="https://www.credential.net/fa08e73b-598f-4829-a2e5-c17cd6e7c008" target="_blank" rel="noopener">Verify on Accredible →</a></p></div>
+          <div class="track" style="--s:.7594;--e:.9595" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+        <div class="row" data-exp="2028-08-15">
+          <a class="badge" href="https://www.credential.net/49c180d8-752f-4278-a47b-628cdc7491c6" target="_blank" rel="noopener" aria-label="Data Engineer Professional badge, verify on Accredible"><img src="/badges/dbx-depro.webp" alt="" width="48" height="64" loading="lazy"></a>
+          <div><h3>Data Engineer Professional</h3><p class="meta"><span>Aug 2026 → Aug 2028</span><a href="https://www.credential.net/49c180d8-752f-4278-a47b-628cdc7491c6" target="_blank" rel="noopener">Verify on Accredible →</a></p></div>
+          <div class="track" style="--s:.7618;--e:.9619" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+      </div>
+
+      <div class="grp">
+        <h2>Microsoft <span class="jewels" aria-hidden="true"><i></i></span><span class="c">· 1</span></h2>
+        <div class="row" data-exp="2027-09-30">
+          <a class="badge" href="https://learn.microsoft.com/en-us/users/pravingadekar/credentials/ac137f9e50841b38" target="_blank" rel="noopener" aria-label="Azure Databricks Data Engineer Associate badge, verify on Microsoft Learn"><img src="/badges/ms-assoc.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Azure Databricks Data Engineer Associate</h3><p class="meta"><span>Sep 2026 → Sep 2027</span><a href="https://learn.microsoft.com/en-us/users/pravingadekar/credentials/ac137f9e50841b38" target="_blank" rel="noopener">Verify on Microsoft Learn →</a></p></div>
+          <div class="track" style="--s:.7742;--e:.8743" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+      </div>
+
+      <div class="grp">
+        <h2>Anthropic <span class="jewels" aria-hidden="true"><i></i></span><span class="c">· 1</span></h2>
+        <div class="row" data-exp="2027-10-07">
+          <a class="badge" href="https://www.credly.com/badges/6092f0c7-da6d-4c74-8b4b-8061099030a5" target="_blank" rel="noopener" aria-label="Claude Certified Associate – Foundations badge, verify on Credly"><img src="/badges/claude.webp" alt="" width="64" height="64" loading="lazy"></a>
+          <div><h3>Claude Certified Associate – Foundations</h3><p class="meta"><span>Oct 2026 → Oct 2027</span><a href="https://www.credly.com/badges/6092f0c7-da6d-4c74-8b4b-8061099030a5" target="_blank" rel="noopener">Verify on Credly →</a></p></div>
+          <div class="track" style="--s:.7763;--e:.8763" aria-hidden="true"><i class="used"></i><i class="left"></i><i class="cap"></i><i class="jewel"></i></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bar">
+    <span>© 2026 Pravin Gadekar</span>
+    <a href="mailto:hello@pravingadekar.com">hello@pravingadekar.com</a>
+  </footer>
+</div>
+<script>
+(function(){
+  var A=Date.UTC(2019,0,1),B=Date.UTC(2029,0,1),now=Date.now(),root=document.documentElement;
+  root.style.setProperty('--n',Math.min(1,Math.max(0,(now-A)/(B-A))).toFixed(4));
+
+  // gauge ticks every month, 0 → 24; gold every 6
+  var t='';for(var m=0;m<=24;m++){var a=Math.PI*(1-m/24),maj=m%6===0,r1=maj?112:m%2?121:118;
+    t+='<line x1="'+(160+r1*Math.cos(a)).toFixed(1)+'" y1="'+(160-r1*Math.sin(a)).toFixed(1)+'" x2="'+(160+126*Math.cos(a)).toFixed(1)+'" y2="'+(160-126*Math.sin(a)).toFixed(1)+'" stroke="'+(maj?'#c9a24e':'#8d9296')+'" stroke-width="'+(maj?1.6:1)+'"/>'}
+  document.getElementById('ticks').innerHTML=t;
+
+  // next expiry still in the future
+  var M='Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' '),next=null;
+  [].forEach.call(document.querySelectorAll('.row[data-exp]'),function(r){var d=Date.parse(r.getAttribute('data-exp'));
+    if(d>now&&(!next||d<next.d))next={d:d,name:r.querySelector('h3').textContent}});
+  var months=0,cap=document.getElementById('next'),needle=document.getElementById('needle');
+  if(next){months=(next.d-now)/(30.44*864e5);var nd=new Date(next.d);
+    cap.innerHTML='Next renewal <b>'+M[nd.getUTCMonth()]+' '+nd.getUTCFullYear()+'</b> · '+Math.round(months)+' mo<br>';
+    cap.appendChild(document.createTextNode(next.name));
+  }else{cap.textContent='All certifications have expired'}
+  var angle=(-90+180*Math.min(months,24)/24).toFixed(1)+'deg';
+
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)){needle.style.setProperty('--a',angle);return}
+  root.classList.add('armed');
+  needle.style.setProperty('--a','-90deg');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){needle.style.setProperty('--a',angle)})});
+
+  // headline counts up to 12
+  var el=document.getElementById('count'),target=+el.textContent,k=0;el.textContent='0';
+  var timer=setInterval(function(){el.textContent=++k;if(k>=target)clearInterval(timer)},70);
+
+  // rows and issuer jewels animate as each scrolls into view
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.2});
+  [].forEach.call(document.querySelectorAll('.row,.grp'),function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
